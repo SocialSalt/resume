@@ -14,7 +14,6 @@
 \usepackage[usenames,dvipsnames]{color}
 \usepackage{verbatim}
 \usepackage{enumitem}
-% \usepackage[hidelinks]{hyperref}
 \usepackage[colorlinks = true,
             linkcolor = blue,
             urlcolor  = blue,
@@ -40,7 +39,7 @@
 \DeclareRobustCommand{\ebseries}{\fontseries{eb}\selectfont}
 \DeclareTextFontCommand{\texteb}{\ebseries}
 
-% custom underilne
+% custom underline
 \usepackage{contour}
 \usepackage[normalem]{ulem}
 \renewcommand{\ULdepth}{1.8pt}
@@ -50,13 +49,10 @@
   \llap{\contour{white}{#1}}%
 }
 
-
 % custom font: helvetica-style
 \usepackage{tgheros}
 \renewcommand*\familydefault{\sfdefault}
-%% Only if the base font of the document is to be sans serif
 \usepackage[T1]{fontenc}
-
 
 \pagestyle{fancy}
 \fancyhf{} % clear all header and footer fields
@@ -77,12 +73,6 @@
 \raggedright
 \setlength{\tabcolsep}{0in}
 
-% Sections formatting - serif
-% \titleformat{\section}{
-%   \vspace{2pt} \scshape \raggedright\large % header section
-% }{}{0em}{}[\color{black} \titlerule \vspace{-5pt}]
-
-% TODO EBSERIES
 % sans serif sections
 \titleformat {\section}{
     \bfseries \vspace{2pt} \raggedright \large % header section
@@ -103,8 +93,8 @@
 \newcommand{\resumeSubheading}[4]{
   \vspace{-1pt}\item
     \begin{tabular*}{\textwidth}[t]{l@{\extracolsep{\fill}}r}
-      \textbf{#1} & {\color{dark-grey}\small #2}\vspace{1pt}\\ % top row of resume entry
-      \textit{#3} & {\color{dark-grey} \small #4}\\ % second row of resume entry
+      \textbf{#1} & {\color{dark-grey}\small #2}\vspace{1pt}\\
+      \textit{#3} & {\color{dark-grey} \small #4}\\
     \end{tabular*}\vspace{-4pt}
 }
 
@@ -126,29 +116,26 @@
 
 \renewcommand\labelitemii{$\vcenter{\hbox{\tiny$\bullet$}}$}
 
-% CHANGED default leftmargin  0.15 in
 \newcommand{\resumeSubHeadingListStart}{\begin{itemize}[leftmargin=0in, label={}]}
 \newcommand{\resumeSubHeadingListEnd}{\end{itemize}}
-\newcommand{\resumeItemListStart}{\begin{itemize}}
-\newcommand{\resumeItemListEnd}{\end{itemize}\vspace{0pt}}
+\newcommand{\resumeItemListStart}{\begin{itemize}[leftmargin=0.15in]}
+\newcommand{\resumeItemListEnd}{\end{itemize}\vspace{-2pt}}
 
 \color{text-grey}
 
 %-------------------------------------------
 %%%%%%  RESUME STARTS HERE  %%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-
 \begin{document}
 
 %----------HEADING----------
 \begin{center}
-    \textbf{\Huge Ethan Walker} \\ \vspace{5pt}
-    \small \faPhone* \texttt{210.309.1532} \hspace{1pt} $|$
-    \hspace{1pt} \faEnvelope \hspace{2pt} \texttt{ethan.walker830@gmail.com} \hspace{1pt} $|$
-    \hspace{1pt} \faIcon{github} \href{https://github.com/SocialSalt}{github.com/SocialSalt} $|$
-    \hspace{1pt} \faIcon{linkedin} \href{https://www.linkedin.com/in/ethanmwalker/}{linkedin.com/in/ethanmwalker} $|$
-    % \hspace{1pt} \faMapMarker* \hspace{2pt}\texttt{U.S. Citizen}
-    \\ \vspace{-3pt}
+  \textbf{\Huge Ethan Walker} \\ \vspace{5pt}
+  \small \faPhone* \texttt{210.309.1532} \hspace{1pt} $|$
+  \hspace{1pt} \faEnvelope \hspace{2pt} \texttt{ethan.walker830@gmail.com} \hspace{1pt} $|$
+  \hspace{1pt} \faIcon{github} \href{https://github.com/SocialSalt}{github.com/SocialSalt} $|$
+  \hspace{1pt} \faIcon{linkedin} \href{https://www.linkedin.com/in/ethanmwalker/}{linkedin.com/in/ethanmwalker}
+  \\ \vspace{-3pt}
 \end{center}
 
 %-----------EXPERIENCE-----------
@@ -156,90 +143,61 @@
   \resumeSubHeadingListStart
 
     \resumeSubheading
-      {Senior Software Engineer, Full Stack}{June 2022 -- Present}
       {Techcyte}{San Francisco, California (Remote)}
+      {Senior Software Engineer}{Feb 2025 -- Present}
       \resumeItemListStart
-      \resumeItem{Collaborated with \textbf{external partners} to adapt Techcyte cloud services to operate on on-premises hardware}
-      \resumeItem{Designed and Implemented an extensible \textbf{automation feature} empowering users to automate actions within the application}
-      \resumeItem{Integrated \textbf{semantic segmentation} models into existing machine learning workflow}
-      \resumeItem{Created maintainable infrastructure to deploy machine learning services to AWS with Terraform}
-      \resumeItem{Supported internal data management team with tools to analyze and iterate on machine learning models}
-      \resumeItem{Worked with UX design teams to implement various user interactions and forms}
+        \resumeItem{Engineered a greenfield \textbf{DICOM Converter} microservice in \textbf{Go and C++} using \textbf{AWS Lambda, SNS, and Terraform}, eliminating slide ingestion bottlenecks and removing heap allocations to optimize memory consumption.}
+        \resumeItem{Engineered queue-depth and message-age autoscaling algorithms for inference worker fleets with dynamic scale-in termination protection, maintaining consistent throughput under heavy clinical lab bursts and variable AWS instance availability.}
+        \resumeItem{Implemented asynchronous workflow automation framework for enterprise clinical partners, resolving high-concurrency race conditions across background event workers.}
+        \resumeItem{Architected and executed a zero-downtime cross-service migration decoupling multi-gigabyte AI and manual workflow payloads from relational database rows into an \textbf{S3 ledger architecture} with presigned URL streaming across repositories.}
+      \resumeItemListEnd
+
+    \resumeSubSubheading
+      {Software Engineer}{June 2022 -- Feb 2025}
+      \resumeItemListStart
+        \resumeItem{Engineered an \textbf{on-premises AI inference engine} migrating workloads from AWS to local clinical edge hardware, achieving complete parity with cloud results via multi-container Docker environments.}
+        \resumeItem{Collaborated on \textbf{hardware-software co-design} with scanner vendors to resolve GPU resource contention, implementing a dual-GPU pipeline that stabilized real-time scanning and AI processing throughput.}
+        \resumeItem{Maintained core deep learning infrastructure and computer vision training frameworks (\textbf{PyTorch, Python}) across object detection and classification models (EfficientDet, HRNet).}
+        \resumeItem{Built and delivered full-stack clinical viewer features, custom differential workflow cards, and performant GraphQL/React user interfaces in \textbf{TypeScript and Go}.}
       \resumeItemListEnd
 
     \resumeSubheading
-      {Graduate Teaching Assistant}{August 2020 -- April 2022}
       {Brigham Young University}{Provo, Utah}
+      {Graduate Teaching Assistant}{August 2020 -- April 2022}
       \resumeItemListStart
-      \resumeItem{Lead classroom instruction on methods in \textbf{machine learning, numerical methods, and optimal control}}
-      \resumeItem{Provided instruction on theoretical foundations of various machine learning methods}
-      \resumeItem{Advised students on coding best practices}
-      \resumeItemListEnd
-
-    % \resumeSubheading
-    %   {Project Supervisor}{April 2021 -- August 2021}
-    %   {Brigham Young University}{Provo, Utah}
-    %   \resumeItemListStart
-    %   \resumeItem{Wrote curriculum for college courses focused on \textbf{implementing machine learning algorithms}, numerical methods, and optimal control}
-    %   \resumeItem{Developed curriculum on topics such as \textbf{Naïve Bayes and Optimal Control}}
-    %   \resumeItemListEnd
-
-  \resumeSubHeadingListEnd
-
-
-%-----------PROJECTS-----------
-
-\section{PROJECTS}
-  \resumeSubHeadingListStart
-    \resumeProjectHeading
-      {\textbf{Contrastive Deep Semi-Supervised Learning}} {}
-      \resumeItemListStart
-      \resumeItem{Implemented the contrastive learning algorithm SimCLR to train a ResNet based facial recognition algorithm}
-      \resumeItem{Used data augmentation to assist in semi-supervised learning}
-      \resumeItemListEnd
-
-    \resumeProjectHeading
-      {\textbf{Effects of Loss on Deep Facial Recognition Models}}{}
-      \resumeItemListStart
-      \resumeItem{Implemented Angular Softmax and Ring Loss for use with ResNet image classifiers}
-      \resumeItem{Examined the resilience of ResNet Models to data bias when trained using these loss functions}
+        \resumeItem{Instructed undergraduate courses on \textbf{Machine Learning, Numerical Methods, and Optimal Control}, focusing on theoretical mathematical foundations and robust algorithmic implementations.}
+        \resumeItem{Mentored students in scientific computing, software design principles, and numerical optimization techniques.}
       \resumeItemListEnd
 
   \resumeSubHeadingListEnd
-
-
 
 %-----------EDUCATION-----------
-\section {EDUCATION}
+\section{EDUCATION}
   \resumeSubHeadingListStart
     \resumeSubheading
       {MS, Mathematics}{April 2022}
       {Brigham Young University}{Provo, Utah}
       \resumeItemListStart
-      \resumeItem {\textbf{Coursework}: Probability Theory, Machine Learning, Analysis, Dynamical Systems}
-      \resumeItem {\textbf{Thesis}: Synchronization in Growing Dynamical Networks}
-      \resumeItem {\href{https://www.sciencedirect.com/science/article/abs/pii/S0378437122003569}{Published} in the scientific journal Physica A}
+        \resumeItem {\textbf{Coursework}: Probability Theory, Machine Learning, Analysis, Dynamical Systems}
+        \resumeItem {\textbf{Thesis}: Synchronization in Growing Dynamical Networks \hspace{1pt} $|$ \hspace{1pt} \href{https://www.sciencedirect.com/science/article/abs/pii/S0378437122003569}{Published in \textit{Physica A}}}
       \resumeItemListEnd
 
     \resumeSubheading
       {BS, Applied and Computational Mathematics}{April 2020}
       {Brigham Young University}{Provo, Utah}
       \resumeItemListStart
-      \resumeItem {\textbf{Coursework}: Machine Learning, Bayesian Statistics, Data Structures, Algorithms, Optimal Control}
+        \resumeItem {\textbf{Coursework}: Machine Learning, Bayesian Statistics, Data Structures, Algorithms, Optimal Control}
       \resumeItemListEnd
 
   \resumeSubHeadingListEnd
 
-
-%
 %-----------PROGRAMMING SKILLS-----------
 \section{SKILLS}
  \begin{itemize}[leftmargin=0in, label={}]
     \small{\item{
-     \textbf{Languages} {: Python, Go, TypeScript }\vspace{2pt} \\
-     \textbf{Tools}     {: Terraform, AWS, Docker, React}
+     \textbf{Languages \& Frameworks}{: Go, Python, TypeScript, SQL, GraphQL, React} \vspace{2pt} \\
+     \textbf{Cloud \& DevOps}{: AWS (S3, Lambda, SNS/SQS, EC2), Terraform, Docker, CI/CD (GitLab)} \vspace{2pt} \\
+     \textbf{Systems, Data \& AI}{: PyTorch, Distributed Systems, DICOM, Edge AI} \vspace{2pt}
     }}
  \end{itemize}
-
-%-------------------------------------------
 \end{document}
